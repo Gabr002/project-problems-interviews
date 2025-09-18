@@ -1,11 +1,17 @@
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        for(int i = 0; i < m; i++) 
-            if(nums1[i] == 0) nums1[i] = nums2[i-n];
+        vector<int> vt;
 
-        sort(nums1.begin(), nums1.end());
+        for(int i = 0; i < m; i++) vt.push_back(nums1[i]); 
+        for(int j = 0; j < n; j++) vt.push_back(nums2[j]); 
 
-        for(auto& a : nums1) cout << a << " ";    
+        sort(vt.begin(), vt.end());
+
+        nums1.clear();
+
+        for(auto& j : vt) nums1.push_back(j); 
+
+        cout << endl;   
     }
 };
